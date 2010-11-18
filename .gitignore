@@ -1,5 +1,7 @@
 # Ignore log files
 logs/
+logs/access.log
+logs/error.log
 
 # Ignore config.php
 src/config.php
