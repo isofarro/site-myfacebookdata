@@ -1,2 +1,6 @@
 # Ignore log files
 logs/
+
+# Ignore config.php
+src/config.php
+
