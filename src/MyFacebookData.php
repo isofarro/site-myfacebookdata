@@ -15,6 +15,31 @@ class MyFacebookData {
 		echo "</pre>";
 	}
 	
+	public function parseRequest($req=null) {
+		if (!$req) {
+			global $_GET;
+			$req = (object)$_GET;
+		}
+		
+		$request = (object)array();
+
+		if ($req->username) {
+			$request->username = $req->username;
+		}
+		
+		return $request;
+	}
+	
+	public function getPublicProfile($username) {
+		$profile = (object)$this->fb->api('/'.$username);
+		
+		if (!empty($profile->id)) {
+			$profile->avatar = 'https://graph.facebook.com/'.$profile->id.'/picture';
+		}
+		
+		return $profile;
+	}
+	
 }
 
 ?>
