@@ -1,0 +1,165 @@
+/* YUI reset */
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+/* YUI fonts */
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+html { 
+	background: #333;
+}
+
+body {
+	font-size: 100%;
+	font-family: Georgia,"Lucida Sans Unicode",verdana,sans-serif;
+	color: #333;
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Palatino,Georgia,"Lucida Sans Unicode",verdana,sans-serif;
+	line-height: 1.22;
+	margin: 0.5em 0;
+	font-weight: bold;
+}
+
+h1 { font-size: 150%; }
+h2 { font-size: 125%; }
+h3 { font-size: 112%; }
+h4 { font-size: 105%; }
+h5 { font-size: 100%; }
+h6 { font-size: 90%; }
+p { margin: 0.5em 0;}
+a { color: #33c; }
+
+blockquote {
+	margin-left: 2em;
+	font-style: italic;
+}
+
+quote {
+	font-style: italic;
+}
+
+#y-page {
+	width: 960px;
+	/* width: 756px; */
+	margin: 16px auto;
+	padding: 0 5px;
+	background: #f9f9f9;
+	overflow: hidden;
+}
+
+#y-head {
+	float: left;
+	width: 950px;
+	/* width: 746px; */
+	margin: 0;
+	padding: 5px;
+	
+	border-bottom: 1px solid #333;
+}
+
+#y-nav {
+	float: left;
+	width: 950px;
+	/* width: 746px; */
+	margin: 0 5px;
+}
+
+#y-content {
+	float: left;
+	width: 640px;
+	/* width: 494px; */
+	margin: 5px 5px;
+}
+
+#y-full-content {
+	float: left;
+	width: 950px;
+	/* width: 746px; */
+	margin: 5px 5px;
+}
+
+#y-debug {
+	border-top: 1px solid #333;
+	float: left;
+	width: 960px;
+	/* width: 746px; */
+	padding: 5px 5px;
+}
+
+
+#y-related {
+	float: left;
+	width: 300px;
+	/* width: 242px; */
+	margin: 5px 5px;
+}
+
+#y-foot {
+	margin: 0 -5px;
+	width: 960px;
+	/* width: 756px; */
+	float: left;
+	background: #333;
+	color: #fff;
+	font-size: 85%;
+	padding: 5px;
+}
+
+#y-foot p, #y-foot a {
+	color: #ddd;
+	text-align: right;
+	font-family: "century gothic",futura,arial,sans-serif;
+}
+
+/* Layout styles */
+
+.unit {
+	/* background-color: Green; */
+	overflow: hidden;
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.unit .board {
+	width: 242px;
+}
+
+/* Mod styles */
+
+.mod {
+	margin: 5px 0;
+}
+
+.mod .bd {
+	overflow: hidden;
+}
+
+
+
+h1 {
+	margin: 0;
+	/* font: 48px "Trebuchet MS",arial,sans-serif; */
+	font: 48px "century gothic",futura,arial,sans-serif;
+	color: #333;
+	letter-spacing: -2px;
+	text-decoration: none;
+}
+
+/********* myfacebookdata custom styles ********/
+
+.public-profile h2.hd {
+	background-color: #ccc;
+	margin: 0;
+	padding: 5px 5px;
+}
+
+.public-profile .bd {
+	padding: 5px;
+}
+
+.public-profile .bd .avatar,
+.public-profile .bd .picture {
+	float: right;
+	margin: 5px 0 5px 5px;
+}

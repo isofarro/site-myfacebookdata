@@ -3,6 +3,9 @@ logs/
 logs/access.log
 logs/error.log
 
+# Ignore data files
+data/
+
 # Ignore config.php
 src/config.php
 
