@@ -2,3 +2,7 @@
 
 <a href="/view/">View your profile</a>
 
+<?php
+	$app->dump($profile);
+?>
+

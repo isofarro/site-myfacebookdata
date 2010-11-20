@@ -86,18 +86,51 @@ class MyFacebookData {
 		}
 	}
 	
-	public function getPrivateProfile() {
-		$profile=(object)NULL;
-		if ($this->session) {
-		  try {
-		    //$profile->uid = $this->fb->getUser();
-		    $profile      = (object)$this->fb->api('/me');
-		  } catch (FacebookApiException $e) {
-		    error_log($e);
-		  }
+	public function getProfile($userid=NULL) {
+		$me = false;
+		
+		// Which userid to show?
+		if (!$userid && $this->hasSession()) {
+			$userid = $this->fb->getUser();
+			$me = true;
 		}
-		return $profile;
+
+		// TODO: Are you allowed to show it?
+
+		// Check for a cached version
+		if ($userid && $this->cached($userid, false)) {
+			return $this->load($userid, false);
+		}
+		else {
+			if ($me) {
+				$profile = (object)$this->fb->api('/me');
+			}
+			else {
+				$profile = (object)$this->fb->api('/'.$userid);
+			}
+			
+			if (!empty($profile->id)) {
+				$profile->avatar = 'https://graph.facebook.com/'.$profile->id.'/picture';
+			}
+
+			$this->save($profile->id, $profile, false);
+			return $profile;
+		}
+
 	}
+	
+	//public function getPrivateProfile() {
+	//	$profile=(object)NULL;
+	//	if ($this->session) {
+	//	  try {
+	//	    //$profile->uid = $this->fb->getUser();
+	//	    $profile      = (object)$this->fb->api('/me');
+	//	  } catch (FacebookApiException $e) {
+	//	    error_log($e);
+	//	  }
+	//	}
+	//	return $profile;
+	//}
 	
 	public function getLoginUrl($params=NULL) {
 		if (!$params) {

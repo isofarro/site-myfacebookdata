@@ -27,6 +27,7 @@ switch ($view) {
 	case 'callback':
 		// Clear out existing data about a user
 		// Re-collect the data
+		$profile = $app->getProfile();
 		break;
 	case 'view':
 		break;
