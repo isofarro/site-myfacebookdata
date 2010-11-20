@@ -190,22 +190,27 @@ legend {
 
 /********* myfacebookdata custom styles ********/
 
-.public-profile h2.hd {
+.full-profile h2.hd {
 	background-color: #ccc;
 	margin: 0;
 	padding: 5px 5px;
 }
 
-.public-profile .bd {
+.full-profile .bd {
 	padding: 5px;
 }
 
-.public-profile .bd .avatar,
-.public-profile .bd .picture {
+.full-profile .bd .avatar,
+.full-profile .bd .picture {
 	float: right;
 	margin: 5px 0 5px 5px;
 }
 
+.full-profile .private {
+	background-color: #fee;
+}
+
+/******** login permissions styles ********/
 .permission {
 	padding-left: 20px;
 }

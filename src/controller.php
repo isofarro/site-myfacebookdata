@@ -30,6 +30,8 @@ switch ($view) {
 		$profile = $app->getProfile();
 		break;
 	case 'view':
+		$page->profile = $app->getProfile();
+		$page->public  = $app->getPublicProfile($page->profile->id);
 		break;
 	case 'logout':
 		break;

@@ -26,14 +26,16 @@
 			?>
 
 		</div>
+		<!-- 
 		<div id="y-debug">
 			<?php
-				$app->dump($page);
-				$app->dump($session);
+				//$app->dump($page);
+				//$app->dump($session);
 				//$app->dump($request);
 				//$app->dump($profile);
 			?>
 		</div>
+		-->
 		<div id="y-foot">
 			<p>Copyright &copy; 2010, a <a href="http://www.maboweb.co.uk/">MaboWeb</a> production.</p>
 			
