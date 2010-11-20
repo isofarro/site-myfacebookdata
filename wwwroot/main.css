@@ -9,12 +9,13 @@ html {
 
 body {
 	font-size: 100%;
-	font-family: Georgia,"Lucida Sans Unicode",verdana,sans-serif;
+	font-family: "Lucida Sans Unicode",verdana,sans-serif;
+	/* font-family: Georgia,"Lucida Sans Unicode",verdana,sans-serif; */
 	color: #333;
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, legend {
 	font-family: Palatino,Georgia,"Lucida Sans Unicode",verdana,sans-serif;
 	line-height: 1.22;
 	margin: 0.5em 0;
@@ -23,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 150%; }
 h2 { font-size: 125%; }
-h3 { font-size: 112%; }
+h3,legend { font-size: 112%; }
 h4 { font-size: 105%; }
 h5 { font-size: 100%; }
 h6 { font-size: 90%; }
@@ -146,6 +147,17 @@ h1 {
 	text-decoration: none;
 }
 
+fieldset {
+	border: 1px solid #999;
+	padding: 5px 10px;
+	margin: 1em 0;
+}
+
+legend {
+	padding: 0 5px;
+	font-weight: bold;
+}
+
 /********* myfacebookdata custom styles ********/
 
 .public-profile h2.hd {
@@ -162,4 +174,30 @@ h1 {
 .public-profile .bd .picture {
 	float: right;
 	margin: 5px 0 5px 5px;
+}
+
+.permission {
+	padding-left: 20px;
+}
+.permission input {
+	float: left;
+	margin: 5px 5px 5px -20px;
+}
+
+.permission label {
+}
+
+.individual .permission {
+	width: 45%;
+	float: left;
+}
+
+.individual .long {
+	clear:left;
+	width: 95%;
+}
+
+.individual h3 {
+	clear: both;
+	padding-top: 1em;
 }

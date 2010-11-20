@@ -19,9 +19,15 @@ switch ($view) {
 		break;
 	case 'login':
 		break;
+	case 'options':
+		break;
 	case 'callback':
+		// Clear out existing data about a user
+		// Re-collect the data
 		break;
 	case 'view':
+		break;
+	case 'logout':
 		break;
 	default:
 		break;
