@@ -5,12 +5,13 @@
 <div class="mod login-status">
 	<h2 class="hd">Facebook: <?php echo $status; ?></h2>
 	<div class="bd">
+		<ul>
 		<?php if ($loggedIn): ?>
-			<a href="<?php echo $page->logoutUrl; ?>">
-		      <img src="http://static.ak.fbcdn.net/rsrc.php/z2Y31/hash/cxrz4k7j.gif">
-		    </a>
+			<li><a href="/view/">View profile</a></li>
+			<li><a href="<?php echo $page->logoutUrl; ?>">Log out</a></li>
 		<?php else: ?>
-			<a href="/login/">Log-in with Facebook</a>
+			<li><a href="/login/">Log-in with Facebook</a></li>
 		<?php endif; ?>
+		</li>
 	</div>
 </div>

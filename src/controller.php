@@ -20,6 +20,9 @@ switch ($view) {
 	case 'login':
 		break;
 	case 'options':
+		$params   = $app->getLoginParams();
+		$loginUrl = $app->getLoginUrl($params);
+		// TODO: Redirect to loginUrl and abort processing here
 		break;
 	case 'callback':
 		// Clear out existing data about a user

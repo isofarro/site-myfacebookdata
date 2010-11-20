@@ -35,7 +35,7 @@
 			?>
 		</div>
 		<div id="y-foot">
-			<p>Copyright &copy; 2010 <a href="http://www.maboweb.co.uk/">maboweb</a></p>
+			<p>Copyright &copy; 2010, a <a href="http://www.maboweb.co.uk/">MaboWeb</a> production.</p>
 			
 
 		</div>

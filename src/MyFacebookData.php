@@ -53,6 +53,21 @@ class MyFacebookData {
 		return $request;
 	}
 	
+	public function getLoginParams($data=NULL) {
+		if ($data===NULL) {
+			global $_REQUEST;
+			$data = $_REQUEST;
+		}
+		
+		$params = array();
+		
+		$params['next']       = $data['next'];
+		$params['cancel_url'] = $data['cancel_url'];
+		$params['req_perms']  = implode(',', $data['req_perms']);
+		
+		return $params;
+	}
+	
 	public function getPublicProfile($username) {
 		
 		if ($this->cached($username, true)) {
@@ -84,8 +99,11 @@ class MyFacebookData {
 		return $profile;
 	}
 	
-	public function getLoginUrl() {
-		return $this->fb->getLoginUrl($this->loginParams);
+	public function getLoginUrl($params=NULL) {
+		if (!$params) {
+			$params = $this->loginParams;
+		}
+		return $this->fb->getLoginUrl($params);
 	}
 
 	public function getLogoutUrl() {

@@ -158,6 +158,36 @@ legend {
 	font-weight: bold;
 }
 
+/********* myfacebook homepage profile styles ********/
+.view-profile {
+	border: 1px solid #ddd;
+}
+
+.view-small-profile {
+	width: 310px;
+	float: left;
+	clear: left;
+}
+
+.mod-right {
+	float: right;
+	clear: none;
+}
+
+.view-profile .hd {
+	background: #ccc;
+	margin: 0;
+	padding: 5px;
+}
+
+.view-profile .ft {
+	text-align: right;
+}
+
+.view-profile .ft a {
+	font-size: 0.9em;
+}
+
 /********* myfacebookdata custom styles ********/
 
 .public-profile h2.hd {
