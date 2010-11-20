@@ -10,7 +10,14 @@ require_once MYFACEBOOKDATA_DIR . '/config.php';
 require_once MYFACEBOOKDATA_DIR . '/helpers.php';
 require_once MYFACEBOOKDATA_DIR . '/MyFacebookData.php';
 
-/** Create Model **/
+
+$app  = new MyFacebookData($config, $view);
+$page = (object)NULL;
+
+include MYFACEBOOKDATA_DIR . '/controller.php';
+include MYFACEBOOKDATA_DIR . '/layout.php';
+
+/**** 
 $app = new MyFacebookData($config);
 $profile = (object)array();
 
@@ -34,6 +41,6 @@ $profile->private = $app->getPrivateProfile();
 
 
 include MYFACEBOOKDATA_DIR . '/view.php';
-
+****/
 
 ?>

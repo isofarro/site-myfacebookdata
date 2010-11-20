@@ -1,0 +1,1 @@
+<p>Homepage view</p>

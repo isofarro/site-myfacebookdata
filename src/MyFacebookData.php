@@ -1,16 +1,36 @@
 <?php
 
 class MyFacebookData {
+	var $view;
 	var $fb;
 	var $session;
+	var $me = NULL;
 	
-	public function __construct($config) {
+	var $loginParams = array(
+		'next'       => 'http://myfacebookdata.dev/view/',
+		'cancel_url' => 'http://myfacebookdata.dev/login/'
+	);
+	var $logoutParams = array(
+		'next'       => 'http://myfacebookdata.dev/view/'
+	);
+	
+	public function __construct($config, $view) {
 		if (is_array($config)) {
 			$this->fb = new Facebook($config);
 		}
+		$this->view = $view;
 		
 		$this->session = $this->fb->getSession();
 	}
+	
+	public function hasSession() {
+		return ($this->session)?true:false;
+	}
+	
+	public function getSession() {
+		return $this->session;
+	}
+	
 	
 	public function dump($object) {
 		echo "<pre>";
@@ -65,11 +85,11 @@ class MyFacebookData {
 	}
 	
 	public function getLoginUrl() {
-		return $this->fb->getLoginUrl();
+		return $this->fb->getLoginUrl($this->loginParams);
 	}
 
 	public function getLogoutUrl() {
-		return $this->fb->getLogoutUrl();
+		return $this->fb->getLogoutUrl($this->logoutParams);
 	}
 	
 	

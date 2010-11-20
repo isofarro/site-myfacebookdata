@@ -1,5 +1,8 @@
 <?php
+$view='home';
+require_once '../src/index.php';
 
+/****
 echo '<h1>MyFacebookData</h1>';
 
 echo <<<HTML
@@ -9,5 +12,6 @@ echo <<<HTML
 	<li><a href="/view/?username=mapocathy">View Cathy Ma's public profile</a></li>
 </ul>
 HTML;
+****/
 
 ?>

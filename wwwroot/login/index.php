@@ -1,4 +1,4 @@
 <?php
-$view = 'view';
+$view = 'login';
 require_once '../../src/index.php';
 ?>
