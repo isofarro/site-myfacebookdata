@@ -25,6 +25,8 @@ switch ($view) {
 		// TODO: Redirect to loginUrl and abort processing here
 		break;
 	case 'callback':
+		$app->handleCallback();
+		//$request  = $app->parseRequest();
 		// Clear out existing data about a user
 		// Re-collect the data
 		$profile = $app->getProfile();
@@ -32,6 +34,7 @@ switch ($view) {
 	case 'view':
 		$page->profile = $app->getProfile();
 		$page->public  = $app->getPublicProfile($page->profile->id);
+		$page->perms   = $app->getProfilePermissions($page->profile->id);
 		break;
 	case 'logout':
 		break;

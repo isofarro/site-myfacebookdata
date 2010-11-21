@@ -50,7 +50,40 @@ class MyFacebookData {
 			$request->username = $req->username;
 		}
 		
+		if ($req->perms) {
+			$request->permissions = explode(',', $req->perms);
+		}
+
+		if ($req->selected_profiles) {
+			$request->ids = explode(',', $req->selected_profiles);
+		}
+		
 		return $request;
+	}
+	
+	public function handleCallback($req=NULL) {
+		if (!$req) {
+			global $_REQUEST;
+			$req = (object)$_REQUEST;
+		}
+		
+		$access = (object)array();
+		
+		if ($req->perms) {
+			$access->perms = explode(',', $req->perms);
+		}
+
+		if ($req->selected_profiles) {
+			$profileIds = explode(',', $req->selected_profiles);
+			foreach ($profileIds as $profileId) {
+				$access->id = $profileId;
+				$this->save($access->id.'__perms', $access);
+			}
+		}
+
+
+
+		return $access;
 	}
 	
 	public function getLoginParams($data=NULL) {
@@ -123,6 +156,24 @@ class MyFacebookData {
 
 	}
 	
+	public function getProfilePermissions($userid=NULL) {
+		$perms = NULL;
+		
+		// Which userid to show?
+		if (!$userid && $this->hasSession()) {
+			$userid = $this->fb->getUser();
+			$me = true;
+		}
+
+		// TODO: Are you allowed to show it?
+
+		// Check for a cached version
+		if ($userid && $this->cached($userid, false)) {
+			return $this->load($userid.'__perms', false);
+		}
+		return $perms;
+	}
+	
 	//public function getPrivateProfile() {
 	//	$profile=(object)NULL;
 	//	if ($this->session) {
@@ -158,6 +209,11 @@ class MyFacebookData {
 	protected function save($name, $obj, $public=false) {
 		$dir  = $public?MYFACEBOOKDATA_PUBLIC:MYFACEBOOKDATA_PRIVATE;
 		$file = $dir . '/' . $name . '.json';
+		
+		if (file_exists($file)) {
+			unlink($file);
+		}
+		
 		$ser  = json_encode($obj);
 		return file_put_contents($file, $ser);
 	}

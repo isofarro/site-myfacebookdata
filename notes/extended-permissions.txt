@@ -1,0 +1,22 @@
+https://www.facebook.com/connect/uiserver.php?api_key=9869919170&display=popup&fbconnect=1&locale=en_US&method=permissions.request&next=http://static.ak.fbcdn.net/connect/xd_proxy.php#cb=f2dce7de50aa72a&origin=http%3A%2F%2Fwww.nytimes.com%2Ff2820359b7892c6&relation=opener&transport=postmessage&frame=f1770659c0908&result=%22xxRESULTTOKENxx%22&perms=offline_access,email,user_about_me,user_birthday,user_education_history,user_groups,user_hometown,user_interests,user_likes,user_location,user_website,user_work_history&return_session=1&sdk=joey&session_version=3
+
+https://graph.facebook.com/oauth/authorize?client_id=2dfcb89cecbb562c56b72d2edc291ea5&redirect_uri=http://www.lovefilm.com/account/facebook_auth_callback.html&scope=publish_stream,read_stream,offline_access
+
+
+NYTimes:
+perms=offline_access,email,user_about_me,user_birthday,user_education_history,user_groups,user_hometown,user_interests,user_likes,user_location,user_website,user_work_history
+
+LOVEFiLM:
+scope=publish_stream,read_stream,offline_access
+
+
+
+
+
+stdClass Object
+(
+    [loginUrl] => https://www.facebook.com/login.php?api_key=141422025907855&cancel_url=http://myfacebookdata.dev/login/&display=page&fbconnect=1&next=http://myfacebookdata.dev/view/&return_session=1&session_version=3&v=1.0
+    [logoutUrl] => https://www.facebook.com/logout.php?next=http%3A%2F%2Fmyfacebookdata.dev%2Fview%2F&access_token=141422025907855%7Cb24f740de8c140df859e34a58773045c
+    [id] => options
+    [title] => 
+)
