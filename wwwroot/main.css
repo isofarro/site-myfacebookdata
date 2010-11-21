@@ -214,6 +214,11 @@ legend {
 	margin-left: 20px;
 }
 
+#y-related .private {
+	padding: 5px;
+	background-color: #fee;
+}
+
 /******** login permissions styles ********/
 .permission {
 	padding-left: 20px;

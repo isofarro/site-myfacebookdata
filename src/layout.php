@@ -21,11 +21,17 @@
 			
 			<?php 
 				include MYFACEBOOKDATA_DIR . '/widgets/login-status.php'; 
+				
+				if ($view==='view') {
+					include MYFACEBOOKDATA_DIR . '/widgets/view-sidebar.php'; 
+				}
+				
 				//include MYFACEBOOKDATA_DIR . '/widgets/filter-options.php'; 
 				//include MYFACEBOOKDATA_DIR . '/widgets/privacy-levels.php'; 
 			?>
 
 		</div>
+<?php if (false): ?>
 		<div id="y-debug">
 			<?php
 				$app->dump($page);
@@ -36,6 +42,7 @@
 				//$app->dump($_COOKIE);
 			?>
 		</div>
+<?php endif; ?>
 		<div id="y-foot">
 			<p>Copyright &copy; 2010, a <a href="http://www.maboweb.co.uk/">MaboWeb</a> production.</p>
 			

@@ -17,9 +17,10 @@
 	<h2 class="hd">Harvey Hermit</h2>
 	<div class="bd">
 		<p>Harvey keeps his cards close to his chest, and doesn't share any information with his friends.</p>
+		<b>Not implemented yet.</b>
 	</div>
 	<div class="ft">
-		<a href="/view/?username=harvey.hermit">View Profile &rarr;</a>
+		<a href="#/view/?username=harvey.hermit">View Profile &rarr;</a>
 	</div>
 </div>
 
@@ -27,9 +28,10 @@
 	<h2 class="hd">Ian Introvert</h2>
 	<div class="bd">
 		<p>Ian has a small circle of trusted friends, so he shares profile information only with them</p>
+		<b>Not implemented yet.</b>
 	</div>
 	<div class="ft">
-		<a href="/view/?username=ian.introvert">View Profile &rarr;</a>
+		<a href="#/view/?username=ian.introvert">View Profile &rarr;</a>
 	</div>
 </div>
 
@@ -37,9 +39,10 @@
 	<h2 class="hd">Eric Extrovert</h2>
 	<div class="bd">
 		<p>Eric likes meeting new people, so he shares his information with all the friends of his friends.</p>
+		<b>Not implemented yet.</b>
 	</div>
 	<div class="ft">
-		<a href="/view/?username=eric.extrovert">View Profile &rarr;</a>
+		<a href="#/view/?username=eric.extrovert">View Profile &rarr;</a>
 	</div>
 </div>
 
@@ -47,9 +50,10 @@
 	<h2 class="hd">Neville Networker</h2>
 	<div class="bd">
 		<p>Likes being connected and being friends with everyone, so everything he does and shares is public.</p>
+		<b>Not implemented yet.</b>
 	</div>
 	<div class="ft">
-		<a href="/view/?username=neville.networker">View Profile &rarr;</a>
+		<a href="#/view/?username=neville.networker">View Profile &rarr;</a>
 	</div>
 </div>
 

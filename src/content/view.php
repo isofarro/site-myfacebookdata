@@ -35,9 +35,7 @@ HTML;
 		</ul>
 
 		<h2>Connections</h2>
-		
-		<p class="private">Information with a background highlight isn't publicly visible, but available to third-party applications.</p>
-		
+				
 	</div>
 	<div class="ft"></div>
 </div>
