@@ -210,6 +210,10 @@ legend {
 	background-color: #fee;
 }
 
+.full-profile .roles {
+	margin-left: 20px;
+}
+
 /******** login permissions styles ********/
 .permission {
 	padding-left: 20px;

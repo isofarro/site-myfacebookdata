@@ -8,7 +8,7 @@
 		<ul>
 		<?php if ($loggedIn): ?>
 			<li><a href="/view/">View profile</a></li>
-			<li><a href="<?php echo $page->logoutUrl; ?>">Log out</a></li>
+			<li><a href="/login/logout/">Log out</a></li>
 		<?php else: ?>
 			<li><a href="/login/">Log-in with Facebook</a></li>
 		<?php endif; ?>

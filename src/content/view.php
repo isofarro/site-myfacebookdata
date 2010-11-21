@@ -21,7 +21,7 @@
 						:'public';
 					$name  = Helper::formatLabel($fieldName);
 					$value = $page->profile->{$fieldName};
-					$value = (is_string($value))?$value:Helper::renderField($fieldName, $value);
+					$value = Helper::renderField($fieldName, $value);
 
 					if ($value) {
 						echo <<<HTML

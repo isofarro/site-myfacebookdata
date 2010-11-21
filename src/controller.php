@@ -37,6 +37,7 @@ switch ($view) {
 		$page->perms   = $app->getProfilePermissions($page->profile->id);
 		break;
 	case 'logout':
+		$app->cleanup();
 		break;
 	default:
 		break;

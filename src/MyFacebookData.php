@@ -5,18 +5,21 @@ class MyFacebookData {
 	var $fb;
 	var $session;
 	var $me = NULL;
+	var $appId = '';
 	
 	var $loginParams = array(
 		'next'       => 'http://myfacebookdata.dev/view/',
 		'cancel_url' => 'http://myfacebookdata.dev/login/'
 	);
 	var $logoutParams = array(
-		'next'       => 'http://myfacebookdata.dev/view/'
+		//'next'       => 'http://myfacebookdata.dev/'
+		'next'       => 'http://myprofile.thisvps.co.uk/'
 	);
 	
 	public function __construct($config, $view) {
 		if (is_array($config)) {
 			$this->fb = new Facebook($config);
+			$this->appId = $config['appId'];
 		}
 		$this->view = $view;
 		
@@ -84,6 +87,13 @@ class MyFacebookData {
 
 
 		return $access;
+	}
+	
+	public function cleanup() {
+		// TODO: Clear stored data
+
+		$this->fb->setSession(NULL);
+		
 	}
 	
 	public function getLoginParams($data=NULL) {

@@ -28,10 +28,11 @@
 		</div>
 		<div id="y-debug">
 			<?php
-				$app->dump($page);
-				$app->dump($session);
-				$app->dump($_REQUEST);
-				$app->dump($request);
+				$app->dump($_COOKIE);
+				//$app->dump($page);
+				//$app->dump($session);
+				//$app->dump($_REQUEST);
+				//$app->dump($request);
 			?>
 		</div>
 		<div id="y-foot">
