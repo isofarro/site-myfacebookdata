@@ -30,8 +30,11 @@ switch ($view) {
 		//$request  = $app->parseRequest();
 		// Clear out existing data about a user
 		// Re-collect the data
+		
+		// warming the cache
 		$profile = $app->getProfile();
 		$public  = $app->getPublicProfile($profile->id);
+		
 		header('Location: http://' . $_SERVER['SERVER_NAME'] . '/view/');
 		exit;
 		break;
@@ -39,6 +42,9 @@ switch ($view) {
 		$page->profile = $app->getProfile();
 		$page->public  = $app->getPublicProfile($page->profile->id);
 		$page->perms   = $app->getProfilePermissions($page->profile->id);
+		$page->friends = $app->getProfileFriends($page->profile->id);
+		$page->news    = $app->getProfileNews($page->profile->id);
+		$page->likes   = $app->getProfileLikes($page->profile->id);
 		break;
 	case 'logout':
 		$app->cleanup();

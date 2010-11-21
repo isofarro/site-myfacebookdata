@@ -34,11 +34,33 @@ HTML;
 		?>						
 		</ul>
 
-		<h2>Connections</h2>
-				
 	</div>
 	<div class="ft"></div>
 </div>
+
+
+<?php if (!empty($page->news->data)): ?>
+<div class="mod full-profile">
+	<h2 class="hd">Your News Stream</h2>
+	<div class="bd">
+		<ul class="news">
+			<?php 
+				$news = array_slice($page->news->data, 0, 5);
+				foreach($news as $item) {
+					echo <<<HTML
+			<li><b>{$item->from->name}:</b> {$item->message}{$item->name}</li>
+HTML;
+
+				} 
+			?>
+		</ul>
+		<p><b>1-<?php echo count($news); ?></b> of <?php echo count($page->news->data); ?> your news items.</p>
+	</div>
+	<div class="ft"></div>
+</div>
+<?php endif; ?>
+
+
 <?php elseif (!empty($page->public)): ?>
 <div class="mod full-profile">
 	<h2 class="hd">Public Profile</h2>

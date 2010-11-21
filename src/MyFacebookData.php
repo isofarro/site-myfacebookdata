@@ -193,10 +193,59 @@ class MyFacebookData {
 		// TODO: Are you allowed to show it?
 
 		// Check for a cached version
-		if ($userid && $this->cached($userid, false)) {
+		if ($userid && $this->cached($userid.'__perms', false)) {
 			return $this->load($userid.'__perms', false);
 		}
 		return $perms;
+	}
+	
+	public function getProfileFriends($userid) {
+		$cacheKey = $userid.'__friends';
+		if ($userid && $this->cached($cacheKey, false)) {
+			return $this->load($cacheKey, false);
+		}
+		else {
+			$friends = (object)$this->fb->api('/me/friends');
+			
+			if (!empty($friends->data)) {
+				$this->save($cacheKey, $friends, false);
+			}
+
+			return $friends;
+		}
+		
+	}
+
+	public function getProfileNews($userid) {
+		$cacheKey = $userid.'__news';
+		if ($userid && $this->cached($cacheKey, false)) {
+			return $this->load($cacheKey, false);
+		}
+		else {
+			$news = (object)$this->fb->api('/me/home');
+			
+			if (!empty($news->data)) {
+				$this->save($cacheKey, $news, false);
+			}
+
+			return $news;
+		}
+	}
+
+	public function getProfileLikes($userid) {
+		$cacheKey = $userid.'__likes';
+		if ($userid && $this->cached($cacheKey, false)) {
+			return $this->load($cacheKey, false);
+		}
+		else {
+			$likes = (object)$this->fb->api('/me/likes');
+			
+			if (!empty($likes->data)) {
+				$this->save($cacheKey, $likes, false);
+			}
+
+			return $likes;
+		}
 	}
 	
 	//public function getPrivateProfile() {
@@ -253,7 +302,7 @@ class MyFacebookData {
 	}
 	
 	protected function clearCache($id) {
-		$files = array('', '__perms');
+		$files = array('', '__perms', '__friends', '__news', '__likes');
 		
 		foreach($files as $suffix) {
 			$filename = '/' . $id . $suffix . '.json';

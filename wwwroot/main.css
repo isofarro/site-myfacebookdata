@@ -212,11 +212,20 @@ legend {
 
 .full-profile .roles {
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 #y-related .private {
 	padding: 5px;
 	background-color: #fee;
+}
+
+ul.friends li {
+	display: inline;
+}
+
+ul.likes li {
+	display: inline;
 }
 
 /******** login permissions styles ********/
