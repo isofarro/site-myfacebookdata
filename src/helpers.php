@@ -23,6 +23,19 @@ class Helper {
 		return !in_array($name, self::$publicFilter);
 	}
 	
+	
+	static function renderField($name, $data) {
+		$fnName = 'renderField_'.$name;
+		if (is_callable(array('Helper', $fnName))) {
+			return call_user_func(array('Helper', $fnName), $data);
+			//return 'Function exists';
+		}
+		return "<i>No rendered for <b>{$name}</b> found.</i>";
+	}
+	
+	static function renderField_hometown($data) {
+		return (empty($data->name))?'':$data->name;
+	}
 }
 
 
