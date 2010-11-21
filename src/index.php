@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 define('FACEBOOK_SDK_DIR',       dirname(dirname(__FILE__)).'/facebook-sdk/php-sdk');
 define('MYFACEBOOKDATA_DIR',     dirname(__FILE__));
 define('MYFACEBOOKDATA_PUBLIC',  dirname(MYFACEBOOKDATA_DIR).'/data/public');
@@ -16,31 +18,5 @@ $page = (object)NULL;
 
 include MYFACEBOOKDATA_DIR . '/controller.php';
 include MYFACEBOOKDATA_DIR . '/layout.php';
-
-/**** 
-$app = new MyFacebookData($config);
-$profile = (object)array();
-
-//$app->dump($app);
-$request = $app->parseRequest();
-
-if (!empty($request->username)) {
-	$user_public = $app->getPublicProfile($request->username);
-}
-else {
-	$user_public = $app->getPublicProfile('markzuckerberg');
-}
-
-
-if ($user_public) {
-	$profile->public = $user_public;
-}
-
-$profile->private = $app->getPrivateProfile();
-
-
-
-include MYFACEBOOKDATA_DIR . '/view.php';
-****/
 
 ?>

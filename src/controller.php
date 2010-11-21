@@ -22,7 +22,8 @@ switch ($view) {
 	case 'options':
 		$params   = $app->getLoginParams();
 		$loginUrl = $app->getLoginUrl($params);
-		// TODO: Redirect to loginUrl and abort processing here
+		header('Location: ' . $loginUrl);
+		exit;
 		break;
 	case 'callback':
 		$app->handleCallback();
@@ -30,6 +31,9 @@ switch ($view) {
 		// Clear out existing data about a user
 		// Re-collect the data
 		$profile = $app->getProfile();
+		$public  = $app->getPublicProfile($profile->id);
+		header('Location: http://' . $_SERVER['SERVER_NAME'] . '/view/');
+		exit;
 		break;
 	case 'view':
 		$page->profile = $app->getProfile();
@@ -38,6 +42,8 @@ switch ($view) {
 		break;
 	case 'logout':
 		$app->cleanup();
+		header('Location: ' . $page->logoutUrl);
+		exit;
 		break;
 	default:
 		break;

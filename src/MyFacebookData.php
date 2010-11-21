@@ -8,8 +8,10 @@ class MyFacebookData {
 	var $appId = '';
 	
 	var $loginParams = array(
-		'next'       => 'http://myfacebookdata.dev/view/',
-		'cancel_url' => 'http://myfacebookdata.dev/login/'
+		//'next'       => 'http://myfacebookdata.dev/view/',
+		//'cancel_url' => 'http://myfacebookdata.dev/login/'
+		'next'       => 'http://myprofile.thisvps.co.uk/login/callback/',
+		'cancel_url' => 'http://myprofile.thisvps.co.uk/login/'
 	);
 	var $logoutParams = array(
 		//'next'       => 'http://myfacebookdata.dev/'
@@ -66,8 +68,13 @@ class MyFacebookData {
 	
 	public function handleCallback($req=NULL) {
 		if (!$req) {
-			global $_REQUEST;
+			global $_REQUEST, $_SESSION;
 			$req = (object)$_REQUEST;
+			
+			if (!empty($_SESSION['perms'])) {
+				$req->perms = $_SESSION['perms'];
+				unset($_SESSION['perms']);
+			}
 		}
 		
 		$access = (object)array();
@@ -84,16 +91,19 @@ class MyFacebookData {
 			}
 		}
 
-
-
 		return $access;
 	}
 	
 	public function cleanup() {
-		// TODO: Clear stored data
-
-		$this->fb->setSession(NULL);
+		// Clear cached data
+		$id = $this->fb->getUser();
 		
+		if ($id) {
+			$this->clearCache($id);
+		}
+
+		// remove session cookie
+		$this->fb->setSession(NULL);
 	}
 	
 	public function getLoginParams($data=NULL) {
@@ -107,6 +117,11 @@ class MyFacebookData {
 		$params['next']       = $data['next'];
 		$params['cancel_url'] = $data['cancel_url'];
 		$params['req_perms']  = implode(',', $data['req_perms']);
+		
+		if (!empty($params['req_perms'])) {
+			global $_SESSION;
+			$_SESSION['perms'] = $params['req_perms'];
+		}
 		
 		return $params;
 	}
@@ -235,6 +250,24 @@ class MyFacebookData {
 			return json_decode(file_get_contents($file));
 		}
 		return NULL;
+	}
+	
+	protected function clearCache($id) {
+		$files = array('', '__perms');
+		
+		foreach($files as $suffix) {
+			$filename = '/' . $id . $suffix . '.json';
+			//echo "<li>Removing file: {$filename}</li>";
+			
+			if (file_exists(MYFACEBOOKDATA_PRIVATE . $filename)) {
+				unlink(MYFACEBOOKDATA_PRIVATE . $filename);
+			}
+			
+			if (file_exists(MYFACEBOOKDATA_PUBLIC . $filename)) {
+				unlink(MYFACEBOOKDATA_PUBLIC . $filename);
+			}
+		}
+		
 	}
 	
 	protected function simpleGet($url) {
