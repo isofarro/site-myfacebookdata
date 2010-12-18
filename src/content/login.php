@@ -15,8 +15,8 @@
 	
 	<form action="/login/options/" method="post">
 	<div class="persist_fields">
-		<input type="hidden" name="next"            value="http://myprofile.thisvps.co.uk/view/">
-		<input type="hidden" name="cancel_url"      value="http://myprofile.thisvps.co.uk/login/">
+		<input type="hidden" name="next"            value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/view/">
+		<input type="hidden" name="cancel_url"      value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/login/">
 		<input type="hidden" name="return_session"  value="1">
 		<input type="hidden" name="session_version" value="3">
 		<input type="hidden" name="v"               value="1.0">

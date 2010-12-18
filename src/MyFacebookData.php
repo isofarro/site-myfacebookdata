@@ -7,18 +7,19 @@ class MyFacebookData {
 	var $me = NULL;
 	var $appId = '';
 	
-	var $loginParams = array(
-		//'next'       => 'http://myfacebookdata.dev/view/',
-		//'cancel_url' => 'http://myfacebookdata.dev/login/'
-		'next'       => 'http://myprofile.thisvps.co.uk/login/callback/',
-		'cancel_url' => 'http://myprofile.thisvps.co.uk/login/'
-	);
-	var $logoutParams = array(
-		//'next'       => 'http://myfacebookdata.dev/'
-		'next'       => 'http://myprofile.thisvps.co.uk/'
-	);
+	var $loginParams = array();
+	var $logoutParams = array();
 	
 	public function __construct($config, $view) {
+		$this->loginParams = array(
+			'next'       => 'http://' . $_SERVER['SERVER_NAME'] . '/login/callback/',
+			'cancel_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/login/'
+		);
+		$this->logoutParams = array(
+			'next'       => 'http://' . $_SERVER['SERVER_NAME'] . '/'
+		);
+
+
 		if (is_array($config)) {
 			$this->fb = new Facebook($config);
 			$this->appId = $config['appId'];

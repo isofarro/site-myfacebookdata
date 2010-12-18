@@ -1,0 +1,12 @@
+
+
+Facebook Developer Dashboard:
+http://www.facebook.com/developers/apps.php?app_id=115610228509020
+
+
+App Name:	joebloggsApp
+App URL:	http://myfacebookdata.dev/
+App ID:		115610228509020
+App Secret:	f7b644fcf84f78304884752f3005ed8d
+
+

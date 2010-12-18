@@ -34,7 +34,11 @@ switch ($view) {
 		// warming the cache
 		$profile = $app->getProfile();
 		$public  = $app->getPublicProfile($profile->id);
-		
+		$perms   = $app->getProfilePermissions($profile->id);
+        $friends = $app->getProfileFriends($profile->id);
+        $news    = $app->getProfileNews($profile->id);
+        $likes   = $app->getProfileLikes($profile->id);
+				
 		header('Location: http://' . $_SERVER['SERVER_NAME'] . '/view/');
 		exit;
 		break;
